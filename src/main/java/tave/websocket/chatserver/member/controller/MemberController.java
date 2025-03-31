@@ -31,7 +31,7 @@ public class MemberController {
         return new ResponseEntity<>(member.getId(), HttpStatus.CREATED);
     }
 
-    @PostMapping
+    @PostMapping("/doLogin")
     public ResponseEntity<?> doLogin(@RequestBody MemberLoginReqDto memberLoginReqDto) {
         //email, password 검증
         Member member=memberService.login(memberLoginReqDto);

@@ -1,6 +1,10 @@
 package tave.websocket.chatserver.common.auth;
 
-import io.lettuce.core.dynamic.annotation.Value;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.spec.SecretKeySpec;
@@ -20,8 +24,8 @@ public class JwtTokenProvider {
         this.SECRET_KEY = new SecretKeySpec(java.util.Base64.getDecoder().decode(secretKey), SignatureAlgorithm.HS512.getJcaName());
     }
 
-    public String createToken(String username,String role) {
-        Claims claims=Jwts.claims.setSubject(email);
+    public String createToken(String email,String role) {
+        Claims claims= Jwts.claims().setSubject(email);
         claims.put("role",role);
         Date now = new Date();
         String token=Jwts.builder()

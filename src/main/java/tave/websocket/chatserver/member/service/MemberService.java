@@ -48,7 +48,7 @@ public class MemberService {
         return member;
     }
 
-    public MemberListReqDto findAll(){
+    public List<MemberListReqDto> findAll(){
         List<Member> members = memberRepository.findAll();
         List<MemberListReqDto> memberListReqDtos = new ArrayList<>();
         for (Member m: members){
