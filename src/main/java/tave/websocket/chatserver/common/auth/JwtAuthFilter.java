@@ -44,7 +44,7 @@ public class JwtAuthFilter extends GenericFilter {
                 Claims claims = Jwts.parserBuilder()
                         .setSigningKey(secretKey)
                         .build()
-                        .parseClaimsJws(token)
+                        .parseClaimsJws(jwtToken)
                         .getBody();
                 //Authentication 객체 생성
                 List<GrantedAuthority> authorities = new ArrayList<>();
