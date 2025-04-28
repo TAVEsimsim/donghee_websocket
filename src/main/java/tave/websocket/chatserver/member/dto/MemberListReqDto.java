@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MemberListReqDto {
-
     private Long id;
     private String name;
     private String email;
